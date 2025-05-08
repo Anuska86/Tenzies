@@ -7,23 +7,23 @@
 
 /* Body styles */
 body {
-  font-family: 'Poppins', sans-serif; /* Use the font from Figma */
-  background-color: #f5f5f5; /* Replace with the background color from Figma */
-  color: #0b2434; /* Text color */
+  font-family: "Poppins", sans-serif;
+  background-color: #0b2434; 
+  color: #0b2434; 
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; 
   margin: 0;
 }
 
 /* Game container */
 .game-container {
-  background-color: #ffffff; /* Card background */
+  background-color: #f5f5f5; 
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   padding: 20px;
-  width: 360px; /* Match the design width */
+  width: 400px; 
   text-align: center;
 }
 
@@ -31,6 +31,7 @@ body {
 .dice-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 columns for dice */
+  grid-template-rows: repeat(2, 1fr); /* 2 rows for dice */
   gap: 10px;
   margin: 20px 0;
 }
@@ -42,7 +43,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e0f7fa; /* Dice background */
+  background-color: #e0f7fa; 
   border-radius: 8px;
   font-size: 24px;
   font-weight: bold;
@@ -51,13 +52,13 @@ body {
 }
 
 .dice:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
+  transform: scale(1.1); 
 }
 
 /* Button styles */
 .roll-button {
-  background-color: #00796b; /* Button color */
-  color: #ffffff;
+  background-color: #00796b; 
+  color: #fafafa;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -67,5 +68,5 @@ body {
 }
 
 .roll-button:hover {
-  background-color: #004d40; /* Darker shade on hover */
+  background-color: #004d40; 
 }

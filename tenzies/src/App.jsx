@@ -11,7 +11,11 @@ function App() {
           current value between rolls.
         </p>
         <div className="dice-grid">
-          {/* Example dice elements */}
+          <div className="dice">1</div>
+          <div className="dice">2</div>
+          <div className="dice">3</div>
+          <div className="dice">4</div>
+          <div className="dice">5</div>
           <div className="dice">1</div>
           <div className="dice">2</div>
           <div className="dice">3</div>
