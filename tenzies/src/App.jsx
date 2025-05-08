@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import Die from "./components/Die";
 
 function App() {
   return (
@@ -11,16 +12,16 @@ function App() {
           current value between rolls.
         </p>
         <div className="dice-grid">
-          <div className="dice">1</div>
-          <div className="dice">2</div>
-          <div className="dice">3</div>
-          <div className="dice">4</div>
-          <div className="dice">5</div>
-          <div className="dice">1</div>
-          <div className="dice">2</div>
-          <div className="dice">3</div>
-          <div className="dice">4</div>
-          <div className="dice">5</div>
+        <Die value={1} />
+        <Die value={2} />
+        <Die value={3} />
+        <Die value={4} />
+        <Die value={5} />
+        <Die value={6} />
+        <Die value={1} />
+        <Die value={2} />
+        <Die value={3} />
+        <Die value={4} />
         </div>
         <button className="roll-button">Roll</button>
       </div>
