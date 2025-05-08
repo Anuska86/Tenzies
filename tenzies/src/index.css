@@ -1,0 +1,71 @@
+/* Reset and box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styles */
+body {
+  font-family: 'Poppins', sans-serif; /* Use the font from Figma */
+  background-color: #f5f5f5; /* Replace with the background color from Figma */
+  color: #0b2434; /* Text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+}
+
+/* Game container */
+.game-container {
+  background-color: #ffffff; /* Card background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  width: 360px; /* Match the design width */
+  text-align: center;
+}
+
+/* Dice grid */
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns for dice */
+  gap: 10px;
+  margin: 20px 0;
+}
+
+/* Dice styles */
+.dice {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0f7fa; /* Dice background */
+  border-radius: 8px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.dice:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Button styles */
+.roll-button {
+  background-color: #00796b; /* Button color */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.roll-button:hover {
+  background-color: #004d40; /* Darker shade on hover */
+}
