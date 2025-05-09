@@ -37,7 +37,7 @@ body {
 }
 
 /* Dice styles */
-.dice {
+.die {
   width: 50px;
   height: 50px;
   display: flex;
@@ -55,7 +55,7 @@ body {
   cursor: pointer;
 }
 
-.dice:hover {
+.die:hover {
   transform: scale(1.1); 
 }
 
