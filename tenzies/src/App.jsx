@@ -3,6 +3,23 @@ import "./index.css";
 import Die from "./components/Die";
 
 function App() {
+  const [dice, setDice] = React.useState(generateAllNewDice());
+
+  function generateAllNewDice() {
+    const newDice = [];
+    for (let i = 0; i < 10; i++) {
+      newDice.push(Math.ceil(Math.random() * 6));
+    }
+
+    return newDice;
+  }
+
+  function rollDice() {
+    setDice((oldDice) =>
+      oldDice.map((die) => (die === 1 ? die : Math.ceil(Math.random() * 6)))
+    );
+  }
+
   return (
     <main>
       <div className="game-container">
@@ -12,18 +29,13 @@ function App() {
           current value between rolls.
         </p>
         <div className="dice-grid">
-        <Die value={1} />
-        <Die value={2} />
-        <Die value={3} />
-        <Die value={4} />
-        <Die value={5} />
-        <Die value={6} />
-        <Die value={1} />
-        <Die value={2} />
-        <Die value={3} />
-        <Die value={4} />
+          {dice.map((die, index) => (
+            <Die key={index} value={die} />
+          ))}
         </div>
-        <button className="roll-button">Roll</button>
+        <button className="roll-button" onClick={rollDice}>
+          Roll
+        </button>
       </div>
     </main>
   );
