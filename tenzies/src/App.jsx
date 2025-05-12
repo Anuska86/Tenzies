@@ -14,10 +14,9 @@ function App() {
     return newDice;
   }
 
+ const diceElements = dice.map((num, index) => <Die key={index} value={num} />);
   function rollDice() {
-    setDice((oldDice) =>
-      oldDice.map((die) => (die === 1 ? die : Math.ceil(Math.random() * 6)))
-    );
+    setDice((prevDice) => prevDice.map(() => Math.ceil(Math.random() * 6)));
   }
 
   return (
@@ -25,13 +24,11 @@ function App() {
       <div className="game-container">
         <h1>Tenzies</h1>
         <p>
-          Roll until all dice are the same. Click each die to freeze it at its
+          Roll until all dice are the same. Click each die to keep its
           current value between rolls.
         </p>
         <div className="dice-grid">
-          {dice.map((die, index) => (
-            <Die key={index} value={die} />
-          ))}
+          {diceElements}
         </div>
         <button className="roll-button" onClick={rollDice}>
           Roll
