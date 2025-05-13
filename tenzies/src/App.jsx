@@ -5,7 +5,7 @@ import Die from "./components/Die";
 import { nanoid } from "nanoid";
 
 function App() {
-  const [dice, setDice] = React.useState(generateAllNewDice());
+  const [dice, setDice] = React.useState(() => generateAllNewDice());
 
   const gameWon = dice.every(
     (die) => die.isHeld && die.value === dice[0].value
@@ -53,7 +53,9 @@ function App() {
 
   return (
     <main>
-      {gameWon && <Confetti width={window.innerWidth} height={window.innerHeight} />}
+      {gameWon && (
+        <Confetti width={window.innerWidth} height={window.innerHeight} />
+      )}
       <div className="game-container">
         <h1 className="title">Tenzies</h1>
         <p className="instructions">
