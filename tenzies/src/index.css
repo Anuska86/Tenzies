@@ -73,6 +73,11 @@ body {
 }
 
 /* Button styles */
+
+button:focus {
+  outline: 2px solid #00796b;
+  outline-offset: -2px;
+}
 .roll-button {
   background-color: #00796b;
   color: #fafafa;

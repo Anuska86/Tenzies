@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import "./index.css";
 import Die from "./components/Die";
@@ -7,6 +7,22 @@ import { nanoid } from "nanoid";
 function App() {
   const [dice, setDice] = React.useState(() => generateAllNewDice());
   const buttonRef = React.useRef(null);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const gameWon = dice.every(
     (die) => die.isHeld && die.value === dice[0].value
@@ -14,6 +30,7 @@ function App() {
 
   useEffect(() => {
     if (gameWon) {
+      console.log("Focusing!");
       buttonRef.current.focus();
     }
   }, [gameWon]);
@@ -63,7 +80,7 @@ function App() {
   return (
     <main>
       {gameWon && (
-        <Confetti width={window.innerWidth} height={window.innerHeight} />
+        <Confetti width={windowSize.width} height={windowSize.height} />
       )}
       <div aria-live="polite" className="sr-only">
         {gameWon && (
