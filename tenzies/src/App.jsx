@@ -24,20 +24,24 @@ function App() {
   }
 
   function rollDice() {
-    setDice((prevDice) =>
-      prevDice.map((die) => {
-        return die.isHeld
-          ? die
-          : { ...die, value: Math.ceil(Math.random() * 6) };
-      })
-    );
+    if (gameWon) {
+      setDice(generateAllNewDice());
+    } else {
+      setDice((prevDice) =>
+        prevDice.map((die) =>
+          die.isHeld
+            ? die
+            : { ...die, value: Math.ceil(Math.random() * 6) }
+        )
+      );
+    }
   }
 
   function holdDice(id) {
     setDice((prevDice) =>
-      prevDice.map((die) => {
-        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
-      })
+      prevDice.map((die) =>
+        die.id === id ? { ...die, isHeld: !die.isHeld } : die
+      )
     );
     console.log(id);
   }
