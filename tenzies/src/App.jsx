@@ -6,6 +6,9 @@ import { nanoid } from "nanoid";
 
 function App() {
   const [dice, setDice] = React.useState(() => generateAllNewDice());
+  const [rollCount, setRollCount] = useState(0);
+  const [timeElapsed, setTimeElapsed] = useState(0);
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
   const buttonRef = React.useRef(null);
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
@@ -28,9 +31,20 @@ function App() {
     (die) => die.isHeld && die.value === dice[0].value
   );
 
+  //Timer
+  useEffect(() => {
+    let timer;
+    if (isTimerRunning) {
+      timer = setInterval(() => {
+        setTimeElapsed((prevTime) => prevTime + 1);
+      }, 1000);
+    }
+    return () => clearInterval(timer);
+  }, [isTimerRunning]);
+
   useEffect(() => {
     if (gameWon) {
-      console.log("Focusing!");
+      setIsTimerRunning(false);
       buttonRef.current.focus();
     }
   }, [gameWon]);
@@ -50,12 +64,19 @@ function App() {
   function rollDice() {
     if (gameWon) {
       setDice(generateAllNewDice());
+      setRollCount(0);
+      setTimeElapsed(0);
+      setIsTimerRunning(false);
     } else {
       setDice((prevDice) =>
         prevDice.map((die) =>
           die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6) }
         )
       );
+      setRollCount((prevCount) => prevCount + 1);
+      if (!isTimerRunning) {
+        setIsTimerRunning(true);
+      }
     }
   }
 
@@ -96,6 +117,10 @@ function App() {
           Roll until all dice are the same. Click each die to keep its current
           value between rolls.
         </p>
+        <div className="stats_container">
+          <div className="timer">Time Elapsed: {timeElapsed}s</div>
+          <div className="roll-counter">Roll Count: {rollCount}</div>
+        </div>
         <div className="dice-grid">{diceElements}</div>
         <button ref={buttonRef} className="roll-button" onClick={rollDice}>
           {gameWon ? "New Game" : "Roll"}
