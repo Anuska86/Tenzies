@@ -29,9 +29,7 @@ function App() {
     } else {
       setDice((prevDice) =>
         prevDice.map((die) =>
-          die.isHeld
-            ? die
-            : { ...die, value: Math.ceil(Math.random() * 6) }
+          die.isHeld ? die : { ...die, value: Math.ceil(Math.random() * 6) }
         )
       );
     }
@@ -60,6 +58,14 @@ function App() {
       {gameWon && (
         <Confetti width={window.innerWidth} height={window.innerHeight} />
       )}
+      <div aria-live="polite" className="sr-only">
+        {gameWon && (
+          <h2 className="win-message">
+            You won!Press "New Game" if you want to star again
+          </h2>
+        )}
+      </div>
+
       <div className="game-container">
         <h1 className="title">Tenzies</h1>
         <p className="instructions">
