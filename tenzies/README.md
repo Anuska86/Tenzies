@@ -17,3 +17,9 @@ npm create vite@latest tenzies
 cd tenzies
 npm install
 npm run dev
+
+
+
+
+EXTRAS:
+npm install react-confetti

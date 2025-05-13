@@ -1,5 +1,5 @@
 import React from "react";
-
+import Confetti from "react-confetti";
 import "./index.css";
 import Die from "./components/Die";
 import { nanoid } from "nanoid";
@@ -53,6 +53,7 @@ function App() {
 
   return (
     <main>
+      {gameWon && <Confetti width={window.innerWidth} height={window.innerHeight} />}
       <div className="game-container">
         <h1 className="title">Tenzies</h1>
         <p className="instructions">
