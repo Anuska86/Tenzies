@@ -19,7 +19,13 @@ function App() {
   }
 
   function rollDice() {
-    setDice(generateAllNewDice());
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        return die.isHeld
+          ? die
+          : { ...die, value: Math.ceil(Math.random() * 6) };
+      })
+    );
   }
 
   function holdDice(id) {
@@ -43,8 +49,8 @@ function App() {
   return (
     <main>
       <div className="game-container">
-        <h1>Tenzies</h1>
-        <p>
+        <h1 className="title">Tenzies</h1>
+        <p className="instructions">
           Roll until all dice are the same. Click each die to keep its current
           value between rolls.
         </p>
