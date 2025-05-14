@@ -21,10 +21,10 @@ export default function Die(props) {
         );
       case 3:
         return (
-          <div className="pip-diagonal">
+          <div className="pip-diagonal three">
             <span className="pip top-left"></span>
-            <span className="pip bottom-right"></span>
             <span className="pip center"></span>
+            <span className="pip bottom-right"></span>
           </div>
         );
       case 4:
@@ -38,12 +38,12 @@ export default function Die(props) {
         );
       case 5:
         return (
-          <div className="pip-grid">
-            <span className="pip"></span>
-            <span className="pip"></span>
+          <div className="pip-diagonal five">
+            <span className="pip top-left"></span>
+            <span className="pip bottom-left"></span>
             <span className="pip center"></span>
-            <span className="pip"></span>
-            <span className="pip"></span>
+            <span className="pip top-right"></span>
+            <span className="pip bottom-right"></span>
           </div>
         );
       case 6:
