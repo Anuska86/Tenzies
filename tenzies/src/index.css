@@ -91,7 +91,7 @@ body {
   border-radius: 50%;
 }
 
-/* Center pip for value 1 */
+/* Value 1 */
 .pip-center {
   display: flex;
   justify-content: center;
@@ -99,7 +99,7 @@ body {
   height: 100%;
 }
 
-/* Diagonal layout for values 2 and 3 */
+/* Values 2 and 3 */
 .pip-diagonal {
   position: relative;
   width: 100%;
@@ -125,7 +125,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Grid layout for values 4, 5, and 6 */
+/* Values 4, 5, and 6 */
 .pip-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
