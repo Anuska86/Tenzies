@@ -86,7 +86,9 @@ function App() {
         die.id === id ? { ...die, isHeld: !die.isHeld } : die
       )
     );
-    console.log(id);
+    if (!isTimerRunning) {
+      setIsTimerRunning(true);
+    }
   }
 
   const diceElements = dice.map((die) => (

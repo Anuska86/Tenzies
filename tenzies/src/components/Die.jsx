@@ -3,23 +3,64 @@ export default function Die(props) {
     backgroundColor: props.isHeld ? "#59E391" : "white",
   };
 
-const renderPips = () => {
-  const columns = [[], []]; // Two columns for the pips
-  for (let i = 0; i < props.value; i++) {
-    // Always add to the left column (columns[0]) if it has fewer pips
-    const columnIndex = columns[0].length < columns[1].length ? 0 : 1;
-    columns[columnIndex].push(<span key={i} className="pip"></span>);
-  }
-  return (
-    <div className="pip-columns">
-      {columns.map((column, index) => (
-        <div key={index} className="pip-column">
-          {column}
-        </div>
-      ))}
-    </div>
-  );
-};
+  const renderPips = () => {
+    switch (props.value) {
+      case 1:
+        return (
+          <div className="pip-center">
+            <span className="pip"></span>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="pip-diagonal">
+            <span className="pip top-left"></span>
+            <span className="pip bottom-right"></span>
+            <span className="pip"></span>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="pip-diagonal">
+            <span className="pip top-left"></span>
+            <span className="pip bottom-right"></span>
+            <span className="pip center"></span>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="pip-grid">
+            <span className="pip"></span>
+            <span className="pip"></span>
+            <span className="pip"></span>
+            <span className="pip"></span>
+          </div>
+        );
+      case 5:
+        return (
+          <div className="pip-grid">
+            <span className="pip"></span>
+            <span className="pip"></span>
+            <span className="pip center"></span>
+            <span className="pip"></span>
+            <span className="pip"></span>
+          </div>
+        );
+      case 6:
+        return (
+          <div className="pip-grid">
+            <span className="pip"></span>
+            <span className="pip"></span>
+            <span className="pip"></span>
+            <span className="pip"></span>
+            <span className="pip"></span>
+            <span className="pip"></span>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <button
