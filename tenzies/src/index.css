@@ -165,14 +165,14 @@ body {
 /* Specific for 5 */
 .pip-diagonal.five .pip.top-left {
   position: absolute;
-  top: 15%; /* Adjusted for better spacing */
-  left: 15%; /* Adjusted for better spacing */
+  top: 18%; /* Adjusted for better spacing */
+  left: 18%; /* Adjusted for better spacing */
 }
 
 .pip-diagonal.five .pip.bottom-left {
   position: absolute;
-  bottom: 15%; /* Adjusted for better spacing */
-  left: 15%; /* Adjusted for better spacing */
+  bottom: 18%; /* Adjusted for better spacing */
+  left: 18%; /* Adjusted for better spacing */
 }
 
 .pip-diagonal.five .pip.center {
@@ -184,14 +184,14 @@ body {
 
 .pip-diagonal.five .pip.top-right {
   position: absolute;
-  top: 15%; /* Adjusted for better spacing */
-  right: 15%; /* Adjusted for better spacing */
+  top: 18%; /* Adjusted for better spacing */
+  right: 18%; /* Adjusted for better spacing */
 }
 
 .pip-diagonal.five .pip.bottom-right {
   position: absolute;
-  bottom: 15%; /* Adjusted for better spacing */
-  right: 15%; /* Adjusted for better spacing */
+  bottom: 18%; /* Adjusted for better spacing */
+  right: 18%; /* Adjusted for better spacing */
 }
 /* Button styles */
 
